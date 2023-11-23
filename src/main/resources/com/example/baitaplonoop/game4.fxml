@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BFEFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.baitaplonoop.gameController4">
+   <children>
+      <Pane prefHeight="116.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <Label layoutX="261.0" layoutY="36.0" text="Game">
+               <font>
+                  <Font name="Book Antiqua Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="goBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Go Back" />
+         </children>
+      </Pane>
+      <Button fx:id="correctAnswer" layoutX="354.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#showImage" prefHeight="40.0" prefWidth="105.0" text="am">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="148.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#showImage3" prefHeight="40.0" prefWidth="105.0" text="do">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="354.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#showImage4" prefHeight="40.0" prefWidth="105.0" text="are">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="148.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#showImage2" prefHeight="40.0" prefWidth="105.0" text="is">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="12.0" layoutY="195.0" prefHeight="76.0" prefWidth="576.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <Text layoutX="21.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. I ___ doing my homework." textAlignment="CENTER" wrappingWidth="534.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Button fx:id="nextButton" layoutX="538.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#goNext" text="Next" />
+      <ImageView fx:id="correctImage" fitHeight="83.0" fitWidth="200.0" layoutX="200.0" layoutY="112.0" visible="false">
+         <image>
+            <Image url="@../../../assets/correct-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="incorrectImage" fitHeight="83.0" fitWidth="200.0" layoutX="200.0" layoutY="115.0" visible="false">
+         <image>
+            <Image url="@../../../assets/incorrect-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
