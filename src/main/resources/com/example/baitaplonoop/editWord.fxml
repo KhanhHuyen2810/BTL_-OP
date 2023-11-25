@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BFEFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.baitaplonoop.editWord">
+   <children>
+      <AnchorPane prefHeight="116.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <Label layoutX="212.0" layoutY="29.0" text="Edit Word">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#goBack" style="-fx-background-color: #0981f2;" text="Go Back" textFill="WHITE" />
+         </children></AnchorPane>
+      <Label layoutX="28.0" layoutY="136.0" text="Word">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="210.0" text="Edit Explanation">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="28.0" layoutY="169.0" prefHeight="25.0" prefWidth="542.0" />
+      <TextField layoutX="28.0" layoutY="241.0" prefHeight="107.0" prefWidth="542.0" />
+      <Button layoutX="257.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#saveChange" style="-fx-background-radius: 30;" text="Save Change" />
+   </children>
+</AnchorPane>

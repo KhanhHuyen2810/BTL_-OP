@@ -53,7 +53,7 @@ public class DictionaryCommandline {
             } else if (number ==4 ) {
                 show.showWordsFile();
             } else if (number == 5) {
-//                show.dictionaryLookup();
+               show.dictionaryLookup();
             } else if (number == 6) {
                 show.dictionarySearcher();
             } else if (number == 7) {

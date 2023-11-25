@@ -14,11 +14,11 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <TextArea fx:id="targetText" layoutX="18.0" layoutY="137.0" prefHeight="238.0" prefWidth="230.0" scaleShape="false">
+      <TextArea fx:id="targetText" layoutX="18.0" layoutY="137.0" prefHeight="238.0" prefWidth="230.0" promptText="Enter a text to translate" scaleShape="false" wrapText="true">
          <font>
             <Font name="Sarabun Regular" size="15.0" />
          </font></TextArea>
-      <TextArea fx:id="explainText" editable="false" layoutX="352.0" layoutY="134.0" prefHeight="238.0" prefWidth="230.0">
+      <TextArea fx:id="explainText" editable="false" layoutX="352.0" layoutY="134.0" prefHeight="238.0" prefWidth="230.0" promptText="Translation" wrapText="true">
          <font>
             <Font name="Sarabun Regular" size="15.0" />
          </font></TextArea>

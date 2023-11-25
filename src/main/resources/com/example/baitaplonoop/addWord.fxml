@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BFEFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.baitaplonoop.addWord">
+   <children>
+      <AnchorPane prefHeight="116.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <Label layoutX="164.0" layoutY="29.0" text="Add New Word">
+               <font>
+                  <Font name="Sarabun ExtraBold" size="40.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#goBack" style="-fx-background-color: #0981f2;" text="Dictionary" textFill="WHITE">
+               <font>
+                  <Font name="Sarabun Bold" size="14.0" />
+               </font></Button>
+         </children></AnchorPane>
+      <Label layoutX="22.0" layoutY="149.0" text="New Word">
+         <font>
+            <Font name="Sarabun Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="249.0" layoutY="149.0" text="Explanation">
+         <font>
+            <Font name="Sarabun Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="addButton" layoutX="270.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="38.0" prefWidth="60.0" style="-fx-background-radius: 30;" text="Add" />
+      <TextField fx:id="newWordInput" layoutX="105.0" layoutY="148.0" prefHeight="26.0" prefWidth="131.0" promptText="Enter new word" />
+      <Label layoutX="22.0" layoutY="216.0" text="Phonics">
+         <font>
+            <Font name="Sarabun Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phonicInput" layoutX="105.0" layoutY="215.0" prefHeight="26.0" prefWidth="131.0" promptText="Enter phonic" />
+      <Label layoutX="22.0" layoutY="283.0" text="Result">
+         <font>
+            <Font name="Sarabun Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="result" editable="false" layoutX="105.0" layoutY="282.0" prefHeight="26.0" prefWidth="227.0" />
+      <TextArea fx:id="explanationInput" layoutX="348.0" layoutY="143.0" prefHeight="171.0" prefWidth="227.0" promptText="Enter explanation" />
+   </children>
+</AnchorPane>

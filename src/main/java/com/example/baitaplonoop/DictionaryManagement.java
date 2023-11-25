@@ -196,6 +196,14 @@ public class DictionaryManagement {
         BubbleSort(dictionaryFile, count);
     }
 
+    public void dictionaryAddScene(String wordAddtarget, String wordAddexplain) {
+        dictionaryFile.dictionary[count] = new Word();
+        dictionaryFile.dictionary[count].setWordtarget(wordAddtarget);
+        dictionaryFile.dictionary[count].setWordexplain(wordAddexplain);
+        count = count + 1;
+//        BubbleSort(dictionaryFile, count);
+    }
+
     public void dictionaryRemove() {
         System.out.print("\nType word to remove: ");
         String wordRemovetarget = sc.nextLine();

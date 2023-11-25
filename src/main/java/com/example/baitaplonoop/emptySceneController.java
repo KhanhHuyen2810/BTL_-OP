@@ -24,9 +24,9 @@ public class emptySceneController implements Initializable {
     @FXML
     TextArea explainText = new TextArea();
     @FXML
-    Button translateButton;
+    private Button translateButton;
     @FXML
-    Button translateButton1;
+    private Button translateButton1;
 
     @FXML
     void setTranslateButton(MouseEvent event) throws IOException {
@@ -42,8 +42,8 @@ public class emptySceneController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        targetText.setText("Enter a text to translate\n(Nhập văn bản)");
-        explainText.setText("Meaning (Bản dịch)");
+//        targetText.setText("Enter a text to translate\n(Nhập văn bản)");
+//        explainText.setText("Meaning (Bản dịch)");
     }
 
     @FXML

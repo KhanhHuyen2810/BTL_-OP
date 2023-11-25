@@ -20,12 +20,11 @@ public class HelloApplication extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setResizable(false);
-//        DictionaryManagement management = new DictionaryManagement();
-//        management.insertFromFile();
     }
 
 
     public static void main(String[] args) {
         launch();
+        DictionaryManagement management = new DictionaryManagement();
     }
 }
