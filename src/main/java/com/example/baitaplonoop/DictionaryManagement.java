@@ -156,6 +156,8 @@ public class DictionaryManagement {
                 s = s + "\n" +  dictionaryFile.dictionary[i].getWordexplain();
             }
         }
+        System.out.println(dictionaryFile.dictionary[count-1].getWordtarget());
+        System.out.println(dictionaryFile.dictionary[count-1].getWordexplain());
         return s;
     }
 
@@ -200,13 +202,33 @@ public class DictionaryManagement {
         dictionaryFile.dictionary[count] = new Word();
         dictionaryFile.dictionary[count].setWordtarget(wordAddtarget);
         dictionaryFile.dictionary[count].setWordexplain(wordAddexplain);
-        count = count + 1;
+//        count = count + 1;
 //        BubbleSort(dictionaryFile, count);
     }
 
     public void dictionaryRemove() {
         System.out.print("\nType word to remove: ");
         String wordRemovetarget = sc.nextLine();
+        int pos = -1;
+        for(int i=0; i<count; i++) {
+            if(wordRemovetarget.equals(dictionaryFile.dictionary[i].getWordtarget())){
+                pos = i;
+                break;
+            }
+        }
+        if (pos != -1 ) {
+            for(int i = pos; i<count-1; i++){
+                dictionaryFile.dictionary[i].setWordtarget(dictionaryFile.dictionary[i+1].getWordtarget());
+                dictionaryFile.dictionary[i].setWordexplain(dictionaryFile.dictionary[i+1].getWordexplain());
+            }
+
+            dictionaryFile.dictionary[count-1].setWordtarget(null);
+            dictionaryFile.dictionary[count-1].setWordexplain(null);
+            count = count - 1;
+        }
+    }
+
+    public void dictionaryRemoveScence(String wordRemovetarget) {
         int pos = -1;
         for(int i=0; i<count; i++) {
             if(wordRemovetarget.equals(dictionaryFile.dictionary[i].getWordtarget())){
@@ -237,6 +259,14 @@ public class DictionaryManagement {
         for(int i = 0; i < count; i++) {
             if(wordtarget.equals(dictionaryFile.dictionary[i].getWordtarget())){
                 dictionaryFile.dictionary[i].setWordtarget(wordReplacetarget);
+                dictionaryFile.dictionary[i].setWordexplain(wordReplaceexplain);
+            }
+        }
+    }
+
+    public void dictionaryReplaceScence(String wordtarget, String wordReplaceexplain) {
+        for(int i = 0; i < count; i++) {
+            if(wordtarget.equals(dictionaryFile.dictionary[i].getWordtarget())){
                 dictionaryFile.dictionary[i].setWordexplain(wordReplaceexplain);
             }
         }

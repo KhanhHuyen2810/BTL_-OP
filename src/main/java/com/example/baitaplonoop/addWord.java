@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class addWord extends dictionaryController implements Initializable  {
+public class addWord extends dictionaryController  {
 
     @FXML
     private Button addButton;
@@ -60,13 +60,20 @@ public class addWord extends dictionaryController implements Initializable  {
         if (!res) {
             result.setText("word has already existed");
         } else {
-            String explain = phonic + explanation;
+            String explain = phonic + "\n" + explanation;
             dictionaryManagement.dictionaryAddScene(newWord, explain);
+//                dictionaryManagement.dictionaryFile.dictionary[dictionaryManagement.count] = new Word();
+//                dictionaryManagement.dictionaryFile.dictionary[dictionaryManagement.count].setWordtarget(newWord);
+//                dictionaryManagement.dictionaryFile.dictionary[dictionaryManagement.count].setWordexplain(explain);
+            dictionaryManagement.count = dictionaryManagement.count + 1;
             result.setText("Add successfully");
+
 //            dictionaryController dictionarycontroller = new dictionaryController();
 //            dictionarycontroller.listView.getItems().addAll(newWord);
         }
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

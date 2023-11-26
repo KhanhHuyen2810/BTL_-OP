@@ -4,16 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.text.*;
 import javafx.scene.paint.*;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -57,21 +54,36 @@ public class dictionaryController implements Initializable {
     @FXML
     void setSearchButton(MouseEvent event) {
         String wordLookup = englishInput.getText();
-        String s = dictionaryManagement.dictionaryLookupScene(wordLookup); // Gọi phương thức dictionaryLookup từ đối tượng DictionaryManagement
-        String meaning = "";
-        String[] fragments = s.split("(?=\\*|-|=)");
-
-        for (String fragment : fragments) {
-            meaning = meaning + "<br>" + fragment.trim();
+        boolean res = false;
+        for (int i = 0; i < dictionaryManagement.count; i++) {
+            if(wordLookup.equals(dictionaryManagement.dictionaryFile.dictionary[i].getWordtarget())) {
+                res = true;
+                break;
+            }
         }
-        engine = definitionView.getEngine();
-        engine.setUserStyleSheetLocation("data:,body { font: 14px Arial; }");
-        engine.loadContent(meaning);
 
-        listView.getItems().clear();
-        ArrayList<String> wordsSearch = new ArrayList<>();
-        wordsSearch = dictionaryManagement.dictionarySearcherScene(wordLookup);
-        listView.getItems().addAll(wordsSearch);
+        if (res == true) {
+
+            String s = dictionaryManagement.dictionaryLookupScene(wordLookup); // Gọi phương thức dictionaryLookup từ đối tượng DictionaryManagement
+            String meaning = "";
+            String[] fragments = s.split("(?=\\*|-|=)");
+
+            for (String fragment : fragments) {
+                meaning = meaning + "<br>" + fragment.trim();
+            }
+            engine = definitionView.getEngine();
+            engine.setUserStyleSheetLocation("data:,body { font: 14px Arial; }");
+            engine.loadContent(meaning);
+
+            listView.getItems().clear();
+            ArrayList<String> wordsSearch = new ArrayList<>();
+            wordsSearch = dictionaryManagement.dictionarySearcherScene(wordLookup);
+            listView.getItems().addAll(wordsSearch);
+        } else {
+            engine = definitionView.getEngine();
+            engine.setUserStyleSheetLocation("data:,body { font: 14px Arial; }");
+            engine.loadContent("Word doesn't exist, please try again!");
+        }
     }
 
     ArrayList<String> words = new ArrayList<>();
@@ -81,7 +93,7 @@ public class dictionaryController implements Initializable {
         listView.getItems().clear();
         engine = definitionView.getEngine();
         engine.setUserStyleSheetLocation("data:,body { font: 16px Arial; }");
-        engine.loadContent("Meaning");
+        engine.loadContent("Explanation");
         dictionaryManagement.insertFromFile();
         for (int i=0; i<dictionaryManagement.count; i++){
             words.add(dictionaryManagement.dictionaryFile.dictionary[i].getWordtarget());
@@ -118,7 +130,40 @@ public class dictionaryController implements Initializable {
 
     @FXML
     void deleteWord(MouseEvent event) {
+        String wordDeletetarget = englishInput.getText();
+        boolean res = false;
+        for (int i = 0; i < dictionaryManagement.count; i++) {
+            if(wordDeletetarget.equals(dictionaryManagement.dictionaryFile.dictionary[i].getWordtarget())) {
+                res = true;
+                break;
+            }
+        }
 
+        if (res == false) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Word doesn't exist!");
+            alert.setTitle("Notification");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+        } else {
+            ButtonType agree = new ButtonType("Có", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("Không", ButtonBar.ButtonData.CANCEL_CLOSE);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete this word ?", agree, no);
+            alert.setTitle("Notification");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == agree){
+                dictionaryManagement.dictionaryRemoveScence(wordDeletetarget);
+                listView.getItems().remove(wordDeletetarget);
+                engine = definitionView.getEngine();
+                engine.setUserStyleSheetLocation("data:,body { font: 16px Arial; }");
+                engine.loadContent("Explanation");
+                englishInput.setText("");
+                Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION, "Delete successfully");
+                alert2.setTitle("Notification");
+                alert2.setHeaderText(null);
+                alert2.showAndWait();
+            }
+        }
     }
 
     @FXML
